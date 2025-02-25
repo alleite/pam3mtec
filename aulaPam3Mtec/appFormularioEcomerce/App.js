@@ -10,8 +10,12 @@ const{width, height} = Dimensions.get('window');
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <ImageBackground
+      style={styles.imagemFundo}
+      source={require("./assets/imagem_fundo.jpg")}>
+         <Image style={styles.image}
+      source={require("./assets/img.png")}></Image>
+      </ImageBackground>
     </View>
   );
 }
@@ -23,4 +27,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  imagemFundo:{
+    resizeMode:"cover",
+    height: '100%',
+    width: '100%',
+ },
+ image:{
+  width: width * 0.5,
+  height:width  * 0.5,
+  resizeMode:"contain",
+},
 });
