@@ -9,7 +9,9 @@ import {
   ImageBackground,
   TouchableOpacity,
   TextInput,
+  ScrollView,
 } from "react-native";
+
 
 export default function Login({ navigation }) {
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 90 }));
@@ -31,8 +33,9 @@ export default function Login({ navigation }) {
   }, []);
 
   return (
+    <ScrollView>
     <ImageBackground
-      source={require("../../../assets/img/fundo3.jpg")}
+      source={require("../../../assets/img/fundo1.jpg")}
       style={styles.imgBg}
     >
       <KeyboardAvoidingView style={styles.background}>
@@ -40,7 +43,7 @@ export default function Login({ navigation }) {
           <Image
             style={{ width: 320 }}
             resizeMode="contain"
-            source={require("../../../assets/img/react.png")}
+            source={require("../../../assets/img/logo.png")}
           ></Image>
         </View>
 
@@ -70,6 +73,7 @@ export default function Login({ navigation }) {
         </Animated.View>
       </KeyboardAvoidingView>
     </ImageBackground>
+    </ScrollView>
   );
 }
 
@@ -135,9 +139,8 @@ const styles= StyleSheet.create({
       },
     
       imgBg:{
-        flex:1,
-        width: null,
-        height: null,
+        width: 'auto',
+        height: 'auto',
         opacity: 1,
         justifyContent: "flex-start",
         backgroundColor: '#000'

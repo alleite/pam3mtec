@@ -35,3 +35,46 @@ export default function Home({ route, navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  },
+  caixa:
+  {
+      textAlign: 'center',
+      width: 100,
+      borderWidth: 5,
+      borderColor: 'black'
+  },
+  logo: {
+    flex: 1,
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
+  imgBg:{
+    width: '100%',
+    height: '100%' , 
+    opacity: 1,
+  },
+  texto:{
+    fontFamily: 'Arial',
+    fontSize: 40,
+    color: '#fff',
+    Top: 10
+  },
+  botao: {
+    backgroundColor: '#1a7',
+    height:45,
+    alignItems:'center',
+    justifyContent:'center',
+    borderRadius: 7,
+    padding:10,  
+  },
+  textoBotao:{
+    color:'#FFF',
+    fontSize:18
+  },
+}); 
