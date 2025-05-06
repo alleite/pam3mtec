@@ -1,12 +1,22 @@
 import { useState, useEffect, useRef } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
 import * as Location from "expo-location";
-import {css} from './css/Css';
+import { css } from "./css/Css";
+
+import config from "./config";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import MapViewDirections from "react-native-maps-directions";
+import "react-native-get-random-values";
+
+import carro from './assets/carrore.png';
 
 export default function App() {
   const [origin, setOrigin] = useState(null);
+  const [destination, setDestination] = useState(null);
+  const [distance, setDistance] = useState(null);
+  const mapEl = useRef(null);
 
   useEffect(() => {
     (async function () {
@@ -27,23 +37,75 @@ export default function App() {
     })();
   }, []);
 
-  return <View style={styles.container}>
-    <MapView
-    style={css.map}
-    initialRegion={origin}
-    showsUserLocation={true}
-    zoomEnabled={true}
-    loadingEnabled={true}>
+  return (
+    <View style={css.container}>
+      <MapView
+        style={css.map}
+        initialRegion={origin}
+        showsUserLocation={true}
+        zoomEnabled={true}
+        loadingEnabled={true}
+        ref={mapEl}
+      >
+        {/* MARCADOR PARA ORIGEM */}
 
-    </MapView>
-  </View>;
+        <Marker
+          //coordinate ={origin}
+          coordinate={{ latitude: -24.4945, longitude: -47.8456 }}
+        >
+          <View style={css.marcador}>
+            <Image source={carro} style={css.marcadorImage} />
+            <View style={css.marcadorTextBox}>
+              <Text style={css.marcadorText}>Meu Local</Text>
+            </View>
+          </View>
+        </Marker>
+
+        {/* 2 parte busca e rotas  */}
+        {destination && (
+          <MapViewDirections
+            origin={origin}
+            destination={destination}
+            apikey={config.googleApi}
+            strokeWidth={5}
+            strokeColor="#a1d"
+            onReady={(result) => {
+              setDistance(result.distance);
+              mapEl.current.fitToCoordinates(result.coordinates, {
+                edgePadding: {
+                  top: 50,
+                  bottom: 50,
+                  left: 50,
+                  right: 50,
+                },
+              });
+            }}
+          ></MapViewDirections>
+        )}
+      </MapView>
+
+      {/*para segunda parte da busca e rotas acrescentamos esta view */}
+      <View style={css.search}>
+        <GooglePlacesAutocomplete
+          placeholder="Para onde vamos?"
+          onPress={(data, details = null) => {
+            setDestination({
+              latitude: details.geometry.location.lat,
+              longitude: details.geometry.location.lng,
+              latitudeDelta: 0.000922,
+              longitudeDelta: 0.000421,
+            });
+          }}
+          query={{
+            key: config.googleApi,
+            language: "pt-br",
+          }}
+          enablePoweredByContainer={false}
+          fetchDetails={true}
+          styles={{ listView: { height: 100 } }}
+        />
+      </View>
+      {distance && <Text style={css.distancia}> Distância: {distance} </Text>}
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
