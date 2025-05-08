@@ -20,7 +20,8 @@
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-circular-progress": "^1.4.1",
-    "react-native-flash-message": "^0.4.2"
+    "react-native-flash-message": "^0.4.2",
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
