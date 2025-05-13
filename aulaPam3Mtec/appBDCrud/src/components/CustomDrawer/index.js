@@ -48,7 +48,7 @@ const CustomDrawer= FC = () => {
                     <TouchableOpacity
                         style={styles.Pages}
                         onPress={() => {
-                            navigation.navigate("Cadastro")
+                            navigation.navigate("Cadastro", {id:0})
                             navigation.dispatch(DrawerActions.closeDrawer())
                         }}
                     >
