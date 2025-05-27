@@ -172,4 +172,31 @@ export const styles = StyleSheet.create({
         alignSelf: "center",
         marginTop: 20,
     },
+    radioContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  outerCircle: {
+    height: 24,
+    width: 24,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: '#555',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  selectedOuter: {
+    borderColor: '#007AFF',
+  },
+  innerCircle: {
+    height: 12,
+    width: 12,
+    borderRadius: 6,
+    backgroundColor: '#007AFF',
+  },
+  label: {
+    marginLeft: 10,
+    fontSize: 16,
+  },
 })

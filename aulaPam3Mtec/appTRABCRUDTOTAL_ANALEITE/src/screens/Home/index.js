@@ -27,14 +27,16 @@ import { Ionicons } from "@expo/vector-icons";
 export default function Home() {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
-
-  const [dados, setDados] = useState([]);
-  const [total, setTotal] = useState([]);
+  const [nome, setNome] = useState([]);
+  const [habitat, setHabitat] = useState([]);
+  const [porte, setPorte] = useState([]);
+  const [flores, setFlores] = useState([]);
+  const [frutifera, setFrutifera] = useState('Sim');
   const [isLoading, setIsLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
   async function totalDadosCadastrados() {
-    const res = await api.get(`appBD/listar-cards.php`);
+    const res = await api.get(`appPlanta/listar-cards.php`);
     setTotal(res.data);
   }
 
@@ -59,12 +61,12 @@ export default function Home() {
   }
 
   async function deleteItem(id) {
-    const res = await api.get("appBD/excluir.php?id=" + id);
+    const res = await api.get("appPlanta/excluir.php?id=" + id);
     listarDados();
   }
   async function listarDados() {
     try {
-      const res = await api.get(`appBD/buscar.php`);
+      const res = await api.get(`appPlanta/buscar.php`);
       setDados(res.data.result);
     } catch (error) {
       console.log("Erro ao Listar " + error);
@@ -134,7 +136,7 @@ export default function Home() {
             </View>
 
             <View style={styles.containerBox}>
-              <TouchableOpacity onPress={() => navigation.navigate("Cadastro", {id:0})}>
+              <TouchableOpacity onPress={() => navigation.navigate("Cadastro", { id: 0 })}>
                 <View>
                   <View style={styles.box}>
                     <MaterialIcons
@@ -158,7 +160,7 @@ export default function Home() {
             {dados.map((item) => (
               <View style={styles.griditem} key={item.id}>
                 <Text style={{ color: "#585858" }}>
-                  {item.id} - {item.cidade} - {item.estado}
+                  {item.id} - {item.nome} - {item.habitat} - {item.porte} - {item.flores} - {item.frutifera}
                 </Text>
                 <TouchableOpacity
                   style={styles.gridbotaoEditar}

@@ -6,7 +6,7 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  Image,
+  Image
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
@@ -23,25 +23,34 @@ const Cadastro = (FC = ({ route }) => {
   const [habitat, setHabitat] = useState("");
   const [porte, setPorte] = useState("");
   const [flores, setFlores] = useState("");
-  const [frutifera, setFrutifera] = useState("");
+  const [frutifera, setFrutifera] = useState('Sim');
   const [sucess, setSucess] = useState(false);
   const [loading, setLoading] = useState(false);
 
   function limparCampos() {
-    setCidade("");
-    setEstado("");
-    setTransporte("");
+    setNome("");
+    setHabitat("");
+    setPorte("");
+    setFlores("");
   }
 
   async function buscardados() {
     const res = await api.get("appPlanta/buscarId.php?id=" + id);
-    limparCampos();
     setNome(res.data.nome);
     setHabitat(res.data.habitat);
     setPorte(res.data.porte);
     setFlores(res.data.flores);
     setFrutifera(res.data.frutifera);
   }
+
+  const RadioButton = ({ label, selected, onPress }) => (
+  <TouchableOpacity style={styles.radioContainer} onPress={onPress}>
+    <View style={[styles.outerCircle, selected && styles.selectedOuter]}>
+      {selected && <View style={styles.innerCircle} />}
+    </View>
+    <Text style={styles.label}>{label}</Text>
+  </TouchableOpacity>
+);
 
   useEffect(() => {
     if (id) {
@@ -199,20 +208,24 @@ const Cadastro = (FC = ({ route }) => {
 
           <TextInput
             placeholder=""
-            onChangeText={(text) => setTransporte(text)}
-            value={transporte}
+            onChangeText={(text) => setFlores(text)}
+            value={flores}
             style={styles.TextInput}
           />
         </View>
         <View>
-          <Text style={styles.TitleInputs}>Qual é o seu porte:</Text>
+          <Text style={styles.TitleInputs}>É frutífera?</Text>
 
-          <TextInput
-            placeholder="Digite o meio de transporte"
-            onChangeText={(text) => setTransporte(text)}
-            value={transporte}
-            style={styles.TextInput}
-          />
+          <RadioButton
+        label="Sim"
+        selected={frutifera === 'Sim'}
+        onPress={() => setFrutifera('Sim')}
+      />
+      <RadioButton
+        label="Não"
+        selected={frutifera === 'Não'}
+        onPress={() => setFrutifera('Não')}
+      />
         </View>
 
         <TouchableOpacity

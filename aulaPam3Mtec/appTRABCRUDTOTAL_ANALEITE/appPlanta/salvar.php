@@ -1,6 +1,6 @@
 <?php 
 require_once("conexao.php");
-$tabela = 'turismo';
+$tabela = 'plantas';
 
 $postjson = json_decode(file_get_contents('php://input'), true);
 

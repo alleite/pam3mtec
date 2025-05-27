@@ -13,15 +13,17 @@ $query = $pdo->query("SELECT * from turismo where id = '$id'");
       }
  		
     $id = $res[$i]['id'];
-    $cidade = $res[$i]['cidade'];
-    $estado = $res[$i]['estado'];
-    $transporte = $res[$i]['transporte'];
+    $nome = $res[$i]['nome'];
+    $habitat = $res[$i]['habitat'];
+    $porte = $res[$i]['porte'];
+    $flores = $res[$i]['flores'];
+    $frutifera = $res[$i]['frutifera'];
 
 
  		}
 
         if(count($res) > 0){
-                $result = json_encode(array('success'=>true, 'id'=>$id, 'cidade'=>$cidade, 'estado'=>$estado, 'transporte'=>$transporte));
+                $result = json_encode(array('success'=>true, 'id'=>$id, 'nome'=>$nome, 'habitat'=>$habitat, 'porte'=>$porte, 'flores'=>$flores, 'frutifera'=>$frutifera));
 
             }else{
                 $result = json_encode(array('success'=>false, 'result'=>'0'));

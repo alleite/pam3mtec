@@ -16,8 +16,12 @@ for ($i=0; $i < count($res); $i++) {
 
     $dados[] = array(
         'id' => $res[$i]['id'],
-        'cidade' => $res[$i]['cidade'],
-        'estado' => $res[$i]['estado'],      
+        'nome' => $res[$i]['nome'],
+        'habitat' => $res[$i]['habitat'],
+        'porte' => $res[$i]['porte'],
+        'flores' => $res[$i]['flores'],
+        'frutifera' => $res[$i]['frutifera'],
+      
        
                          
     );
