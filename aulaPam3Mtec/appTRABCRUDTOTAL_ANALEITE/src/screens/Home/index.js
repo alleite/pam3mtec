@@ -10,7 +10,6 @@ import {
   Image,
   ActivityIndicator,
   RefreshControl,
-  StatusBar,
   Alert,
 } from "react-native";
 
@@ -18,7 +17,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 import Load from "../../components/Load";
 import { DrawerActions, useNavigation } from "@react-navigation/core";
 import api from "../../../services/api";
-import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 import { useIsFocused } from "@react-navigation/native";
 
@@ -66,28 +64,17 @@ export default function Home() {
     const res = await api.get("appPlanta/excluir.php?id=" + id);
     listarDados();
   }
-  async function listarDados() {
-<<<<<<< HEAD
-    try {
-      const res = await api.get(`appPlanta/buscar.php`);
-      setDados(res.data.result);
-    } catch (error) {
-      console.log("Erro ao Listar " + error);
-    } finally {
-      setIsLoading(false);
-      setRefreshing(false);
-    }
-=======
+ async function listarDados() {
   try {
     const res = await api.get(`appPlanta/buscar.php`);
+    console.log("Resposta da API:", res.data); // <-- Adicione isto
     setDados(Array.isArray(res.data.result) ? res.data.result : []);
   } catch (error) {
     console.log("Erro ao Listar " + error);
-    setDados([]); // fallback em caso de erro
+    setDados([]);
   } finally {
     setIsLoading(false);
     setRefreshing(false);
->>>>>>> 282b0a3 (up)
   }
 }
 
@@ -103,14 +90,14 @@ export default function Home() {
 
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar barStyle="light-content" />
+
       <View style={{ flex: 1 }}>
         <View style={styles.header}>
           <View style={styles.containerHeader}>
             <TouchableOpacity
               style={styles.menu}
               onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-            >
+            >      <StatusBar barStyle="light-content" />
               <MaterialIcons name="menu" size={35} color="black" />
             </TouchableOpacity>
 

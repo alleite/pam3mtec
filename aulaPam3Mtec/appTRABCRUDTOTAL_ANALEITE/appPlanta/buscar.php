@@ -20,7 +20,7 @@ for ($i=0; $i < count($res); $i++) {
         'habitat' => $res[$i]['habitat'],
         'porte' => $res[$i]['porte'],
         'flores' => $res[$i]['flores'],
-        'frutifera' => $res[$i]['frutifera'],
+        'frutifera' => $res[$i]['frutifera']
       
        
                          
