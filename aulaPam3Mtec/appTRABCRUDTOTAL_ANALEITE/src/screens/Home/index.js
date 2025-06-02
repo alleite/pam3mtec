@@ -25,6 +25,8 @@ import { useIsFocused } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Home() {
+  const [dados, setDados] = useState([]);
+  const [total, setTotal] = useState(0);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const [nome, setNome] = useState([]);
@@ -65,6 +67,7 @@ export default function Home() {
     listarDados();
   }
   async function listarDados() {
+<<<<<<< HEAD
     try {
       const res = await api.get(`appPlanta/buscar.php`);
       setDados(res.data.result);
@@ -74,7 +77,19 @@ export default function Home() {
       setIsLoading(false);
       setRefreshing(false);
     }
+=======
+  try {
+    const res = await api.get(`appPlanta/buscar.php`);
+    setDados(Array.isArray(res.data.result) ? res.data.result : []);
+  } catch (error) {
+    console.log("Erro ao Listar " + error);
+    setDados([]); // fallback em caso de erro
+  } finally {
+    setIsLoading(false);
+    setRefreshing(false);
+>>>>>>> 282b0a3 (up)
   }
+}
 
   useEffect(() => {
     listarDados();

@@ -1,0 +1,10 @@
+CREATE TABLE planta (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    habitat VARCHAR(90) NOT NULL,
+    porte VARCHAR(90) NOT NULL,
+    flores VARCHAR(90) NOT NULL,
+    frutifera VARCHAR(90) NOT NULL
+);
+
+

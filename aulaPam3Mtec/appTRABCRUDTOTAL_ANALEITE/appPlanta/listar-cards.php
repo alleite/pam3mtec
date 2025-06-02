@@ -8,7 +8,7 @@ $id_usu = @$_GET['user'];
 
 $total_usuarios = 0;
 
-$query = $pdo->query("SELECT * from turismo ");
+$query = $pdo->query("SELECT * from planta ");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_usuarios = @count($res);
 

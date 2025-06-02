@@ -32,6 +32,10 @@ const Cadastro = (FC = ({ route }) => {
     setHabitat("");
     setPorte("");
     setFlores("");
+<<<<<<< HEAD
+=======
+    setFrutifera("");
+>>>>>>> 282b0a3 (up)
   }
 
   async function buscardados() {
@@ -177,7 +181,7 @@ const Cadastro = (FC = ({ route }) => {
 
           <TextInput
             placeholder="Digite o nome da planta:"
-            onChangeText={(text) => setPlanta(text)}
+            onChangeText={(text) => setNome(text)}
             value={nome}
             style={styles.TextInput}
           />

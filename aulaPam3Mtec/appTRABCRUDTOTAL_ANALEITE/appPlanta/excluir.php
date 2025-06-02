@@ -4,7 +4,7 @@ include_once('conexao.php');
 
 $id = $_GET['id'];
 
-$query = $pdo->query("DELETE from turismo where id = '$id'");
+$query = $pdo->query("DELETE from planta where id = '$id'");
 
  
 

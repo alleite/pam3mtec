@@ -5,7 +5,7 @@ include_once('conexao.php');
 $postjson = json_decode(file_get_contents('php://input'), true);
 
 
-$query = $pdo->prepare("SELECT * from turismo");
+$query = $pdo->prepare("SELECT * from planta");
 
 $query->execute();
 
