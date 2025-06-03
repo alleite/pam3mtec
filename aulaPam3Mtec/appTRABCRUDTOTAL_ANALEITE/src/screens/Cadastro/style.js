@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         marginHorizontal: 5,
         alignSelf: "center",
-        backgroundColor: '#009ddd',
+        backgroundColor: '#FFB6C1',
         height: 45,
     },
 
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
     },
 
     Button:{
-        backgroundColor: '#386dbd',
+        backgroundColor: '#9370DB',
         width: '60%',
         alignSelf: "center",
         height: 50,
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
     TitleInputs:{
  
         fontSize: 18,
-        color: "#ffffff",
+        color: "#000",
         marginLeft: 35,
         marginTop: 15,
         marginBottom: 10,

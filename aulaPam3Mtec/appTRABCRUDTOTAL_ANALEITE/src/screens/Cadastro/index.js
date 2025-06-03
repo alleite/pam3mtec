@@ -32,10 +32,7 @@ const Cadastro = (FC = ({ route }) => {
     setHabitat("");
     setPorte("");
     setFlores("");
-<<<<<<< HEAD
-=======
     setFrutifera("");
->>>>>>> 282b0a3 (up)
   }
 
   async function buscardados() {
@@ -154,7 +151,7 @@ const Cadastro = (FC = ({ route }) => {
   }
 
   return (
-    <View style={{ flex: 1, marginTop: 0, backgroundColor: "#0f4571" }}>
+    <View style={{ flex: 1, marginTop: 0, backgroundColor: "#f5f5f5" }}>
       <View style={styles.Header}>
         <Image
           style={styles.logo}
@@ -165,14 +162,9 @@ const Cadastro = (FC = ({ route }) => {
             style={{ marginLeft: 5, marginRight: 5 }}
             name="caret-back-outline"
             size={35}
-            color="#FFF"
+            color="#000"
           ></Ionicons>
         </TouchableOpacity>
-      </View>
-
-      <View style={styles.Title}>
-        <Ionicons name="airplane-outline" size={35} color="#ffffff" />
-        <Text style={styles.TitleText}>Plantas</Text>
       </View>
 
       <ScrollView>
@@ -211,7 +203,7 @@ const Cadastro = (FC = ({ route }) => {
           <Text style={styles.TitleInputs}>Ela possue flores?</Text>
 
           <TextInput
-            placeholder=""
+            placeholder="S ou N"
             onChangeText={(text) => setFlores(text)}
             value={flores}
             style={styles.TextInput}
@@ -240,7 +232,6 @@ const Cadastro = (FC = ({ route }) => {
             // setSucess(false);
           }}
         >
-          <Ionicons name="footsteps-outline" size={35} color="#FFF" />
           <Text style={styles.ButtonText}>Salvar</Text>
         </TouchableOpacity>
 
@@ -252,7 +243,7 @@ const Cadastro = (FC = ({ route }) => {
             setSucess(false);
           }}
         >
-          <Ionicons name="footsteps-outline" size={35} color="#FFF" />
+          <Ionicons name="footsteps-outline" size={35} color="#000" />
           <Text style={styles.ButtonText}>Editar</Text>
         </TouchableOpacity>
       </ScrollView>

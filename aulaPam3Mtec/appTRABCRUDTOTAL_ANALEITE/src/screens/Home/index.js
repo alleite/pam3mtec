@@ -97,7 +97,7 @@ export default function Home() {
             <TouchableOpacity
               style={styles.menu}
               onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-            >      <StatusBar barStyle="light-content" />
+            >
               <MaterialIcons name="menu" size={35} color="black" />
             </TouchableOpacity>
 
@@ -119,24 +119,6 @@ export default function Home() {
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }
           >
-            <View style={styles.circleProgressView}>
-              <View style={styles.textProgressContainer}>
-                <Text style={styles.textProgressTitle}>Tarefas de Hoje</Text>
-                <Text style={styles.textProgress}>10 de 20 concluídas</Text>
-              </View>
-
-              <AnimatedCircularProgress
-                size={80}
-                width={8}
-                fill={50}
-                tintColor="#00e0ff"
-                backgroundColor="#e0e0e0"
-                lineCap={"round"}
-              >
-                {(fill) => <Text style={styles.numberInside}>50%</Text>}
-              </AnimatedCircularProgress>
-            </View>
-
             <View style={styles.containerBox}>
               <TouchableOpacity onPress={() => navigation.navigate("Cadastro", { id: 0 })}>
                 <View>

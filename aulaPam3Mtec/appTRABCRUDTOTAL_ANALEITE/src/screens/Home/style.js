@@ -29,9 +29,9 @@ export const styles = StyleSheet.create({
 
     logo:{
         width: 160,
-        height: 40,
+        height: 60,
         alignSelf: "center",
-        marginTop: 10,
+        marginTop: 0,
     },
 
     containerHeader:{
