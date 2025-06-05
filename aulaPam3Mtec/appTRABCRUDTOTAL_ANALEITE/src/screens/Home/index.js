@@ -123,12 +123,6 @@ export default function Home() {
               <TouchableOpacity onPress={() => navigation.navigate("Cadastro", { id: 0 })}>
                 <View>
                   <View style={styles.box}>
-                    <MaterialIcons
-                      style={styles.iconRegistered}
-                      name="lock-clock"
-                      size={70}
-                      color="#b82d"
-                    />
                     <View style={styles.textos}>
                       <Text style={styles.rText}>Total de Registros</Text>
                       <Text style={styles.lenghtText}>

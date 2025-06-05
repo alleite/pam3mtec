@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
         shadowOffset : { width: 1, height: 5},
         borderBottomRightRadius: 5,
         borderBottomLeftRadius: 5,
-        height: 55,
+        height: 75,
     },
 
     menu:{
@@ -38,6 +38,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "center",
         alignItems: "center",
+        top: 15,
     },
 
     titleTasks:{
@@ -67,7 +68,7 @@ export const styles = StyleSheet.create({
     },
 
     lenghtText:{
-        color: colors.green, 
+        color: 'pink', 
         fontSize: 35, 
         fontFamily: fonts.text,
     },
@@ -119,7 +120,7 @@ export const styles = StyleSheet.create({
 
     rText:{
         fontSize: 20,
-        color: 'gray',
+        color: 'grey',
         fontFamily: fonts.text,
     },
 
@@ -129,7 +130,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 10, 
         borderTopWidth: 1,
         color: '#FFF',
-        backgroundColor: '#871003',
+        backgroundColor: '#9370DB',
         textAlign: 'center',
         fontSize: 15,
         borderBottomLeftRadius: 15,

@@ -243,7 +243,6 @@ const Cadastro = (FC = ({ route }) => {
             setSucess(false);
           }}
         >
-          <Ionicons name="footsteps-outline" size={35} color="#000" />
           <Text style={styles.ButtonText}>Editar</Text>
         </TouchableOpacity>
       </ScrollView>
