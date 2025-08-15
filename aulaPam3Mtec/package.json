@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "expo": "^53.0.20",
+    "expo-image-picker": "^16.1.4",
+    "node": "^22.18.0",
+    "react-native-reanimated-carousel": "^4.0.3",
+    "update": "^0.7.4",
+    "react-native-reanimated": "~3.17.4"
+  }
+}
